@@ -6,7 +6,7 @@ Stand: 27.11.2026. **Eingerichtet am 27.11.2026** (Bucket `regenradar`, Domain r
 
 | Teil | Wo | Wert |
 |---|---|---|
-| Lauf | GitHub Actions, Workflow `pipeline` | alle 5 min (`*/5`), Start oft 5–15 min verspätet (ADR 0001) |
+| Lauf | GitHub Actions, Workflow `pipeline` | alle 5 min, **gestartet vom meteocam-Cron** per `workflow_dispatch` (GitHubs eigener `*/5`-Zeitplan lief nach der Einrichtung nicht an; bleibt als Reserve) |
 | Speicher | Cloudflare R2, Bucket `regenradar` | öffentlich lesbar über eigene Domain |
 | Öffentliche Adresse | `https://radar.meteocam.ch/index.json` | von meteocam gelesen |
 | Tests | GitHub Actions, Workflow `test` | bei jedem Push |
@@ -34,6 +34,14 @@ Stand: 27.11.2026. **Eingerichtet am 27.11.2026** (Bucket `regenradar`, Domain r
 7. **Standard-Branch** auf `main` stellen (Zeitpläne laufen nur auf dem Standard-Branch).
 8. Workflow `pipeline` einmal von Hand starten (Actions → pipeline → Run workflow), dann
    `https://radar.meteocam.ch/index.json` im Browser prüfen.
+
+## Start durch meteocam
+
+- meteocam-Worker, Cron `*/5`: `src/jobs/radar-dispatch.ts` startet `maleanso/regenradar/pipeline.yml` (meteocam ADR 0018).
+- Secret `RADAR_DISPATCH_TOKEN` im Worker meteocam = fein-granularer GitHub-Token «meteocam-radar-dispatch»
+  (nur Repo regenradar, Actions: Read and write). **Läuft ab am 20.10.2027** – Erinnerung in Todoist am 29.09.2027.
+- Erneuern: Token auf GitHub neu erzeugen → in Cloudflare (Workers & Pages → meteocam → Settings → Variables and Secrets) ersetzen.
+- Geprüft 27.11.2026: Läufe um 12:15 und 12:20 UTC, je 37 s.
 
 ## Weiterleitung
 
