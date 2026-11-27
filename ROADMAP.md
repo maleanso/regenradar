@@ -11,7 +11,8 @@ Stand: 27.11.2026
   - [x] ICON-CH1 `TOT_PREC` an echter Datei geprüft (27.11.2026)
   - [x] Farbskala MeteoSchweiz aus App-Legende (freigegeben 27.11.2026)
   - [ ] Anfrage INCA an MeteoSchweiz (Chris, Text vorbereiten)
-- [ ] 3. Pipeline: Dateien → PNG + `index.json` (erst nach «entwickle»)
+- [x] 3. Pipeline: Dateien → PNG + `index.json` (27.11.2026, Branch `feat/pipeline`, 18 Tests)
+  - [ ] 3b. Eigene Hochrechnung aus dem Radar 0–2 h (pysteps), danach Modell ab +2 h (ADR 0002)
   - Umrechnung in mm/h, Umprojektion nach EPSG:3857, transparente PNG mit Farbskala
   - `index.json` mit Zeitstempel, Art (Messung/Prognose), Ausdehnung (Bounds), Quelle
   - Alte Bilder ausserhalb −3 h löschen

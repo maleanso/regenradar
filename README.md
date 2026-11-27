@@ -26,15 +26,16 @@ Proof of Concept, Phase 1 – siehe [ROADMAP.md](ROADMAP.md).
 
 ## Schnellstart
 
-Folgt mit Schritt 3 (Pipeline). Vorgesehen:
-
 ```bash
 cd pipeline
-python -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
-cp ../.env.example ../.env   # R2-Zugang eintragen (nur für Upload nötig)
-pytest
+pytest                                   # Tests
+regenradar run --out ./out               # ein Lauf, Ausgabe lokal in ./out
+regenradar run --r2                      # ein Lauf nach Cloudflare R2 (Zugang via .env bzw. Umgebung)
 ```
+
+Optionen: `--no-model` (nur Radar), `--cache <Ordner>` (Standard `~/.cache/regenradar`).
 
 ## Dokumentation
 
