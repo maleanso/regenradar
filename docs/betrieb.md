@@ -35,6 +35,10 @@ Stand: 27.11.2026. **Eingerichtet am 27.11.2026** (Bucket `regenradar`, Domain r
 8. Workflow `pipeline` einmal von Hand starten (Actions → pipeline → Run workflow), dann
    `https://radar.meteocam.ch/index.json` im Browser prüfen.
 
+## Weiterleitung
+
+Redirect Rule «radar Startseite» in der Zone meteocam.ch: `https://radar.meteocam.ch/` (nur die blosse Adresse) → 302 → `https://meteocam.ch`. Daten (`index.json`, Bilder) sind nicht betroffen.
+
 ## Kosten (Schätzung)
 
 - GitHub Actions: öffentliches Repo → gratis. ~288 Läufe pro Tag, je ca. 1 min.
