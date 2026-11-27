@@ -41,6 +41,7 @@ Optionen: `--no-model` (nur Radar), `--cache <Ordner>` (Standard `~/.cache/regen
 
 - [docs/architektur.md](docs/architektur.md) – Aufbau und Datenfluss
 - [docs/daten.md](docs/daten.md) – Datenquellen, Formate, Gitter, Einheiten, Farbskala
+- [docs/betrieb.md](docs/betrieb.md) – Einrichtung Cloudflare R2 und GitHub Actions, Kosten
 - [docs/entscheide/](docs/entscheide/) – Architekturentscheide
 
 ## Lizenz
