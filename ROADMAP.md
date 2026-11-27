@@ -17,8 +17,8 @@ Stand: 27.11.2026
   - `index.json` mit Zeitstempel, Art (Messung/Prognose), Ausdehnung (Bounds), Quelle
   - Alte Bilder ausserhalb −3 h löschen
   - pytest mit kleiner Beispieldatei
-- [ ] 4. Integration meteocam: Ebene «Regen» (erst nach «entwickle», im Repo meteocam auf eigenem Branch)
-- [ ] 5. Automatisierung (GitHub Actions Cron) und R2-Bucket (erst nach «deploy»)
+- [x] 4. Integration meteocam: Ebene «Regen» (27.11.2026, meteocam Branch `dev/rr-regen-layer`, ADR 0018 dort)
+- [ ] 5. Automatisierung (GitHub Actions Cron) und R2-Bucket – Workflows liegen im Branch, Einrichtung nach «deploy» (`docs/betrieb.md`)
 
 **Stopp – weiter zu Phase 2 erst nach Freigabe durch Chris.**
 
@@ -26,12 +26,12 @@ Stand: 27.11.2026
 
 Umsetzung im Repo meteocam, erst nach «entwickle».
 
-- [ ] R1. Eigener Icon-Knopf «Regen» auf der **linken** Kartenseite
-- [ ] R2. Prüfen: METAR-Knopf ebenfalls auf die linke Seite verschieben (zusammen mit «Regen»)
-- [ ] R3. Beim Einschalten erscheint der Zeitschieber **ganz unten, fixiert** (−3 h … +6 h, Play/Pause, Markierung «jetzt», Messung/Prognose klar unterscheidbar)
-- [ ] R4. Legende in mm/h (Farbskala MeteoSchweiz), «Source: MeteoSwiss», Hinweis «kein offizielles Flugwetterprodukt»
-- [ ] R5. Mobil gut bedienbar (iPhone, iPad, EFB)
-- [ ] R6. Gut sichtbare **Warnung zum Alter der Daten** (Zeitpunkt der letzten Messung und des Modelllaufs, auffällig wenn veraltet) mit Hinweis **«nur für Versuchszwecke»**
+- [x] R1. Eigener Icon-Knopf «Regen» auf der **linken** Kartenseite
+- [x] R2. Prüfen: METAR-Knopf ebenfalls auf die linke Seite verschieben (zusammen mit «Regen»)
+- [x] R3. Beim Einschalten erscheint der Zeitschieber **ganz unten, fixiert** (−3 h … +6 h, Play/Pause, Markierung «jetzt», Messung/Prognose klar unterscheidbar)
+- [x] R4. Legende in mm/h (Farbskala MeteoSchweiz), «Source: MeteoSwiss», Hinweis «kein offizielles Flugwetterprodukt»
+- [x] R5. Mobil gut bedienbar (iPhone, iPad, EFB)
+- [x] R6. Gut sichtbare **Warnung zum Alter der Daten** (Zeitpunkt der letzten Messung und des Modelllaufs, auffällig wenn veraltet) mit Hinweis **«nur für Versuchszwecke»**
 
 ## Phase 2 – Ideen (noch nicht freigegeben)
 
