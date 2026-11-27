@@ -56,4 +56,5 @@ Owner: Chris (maleanso). Repo is **public**, **no licence** (all rights reserved
 ## Current status
 
 - 2026-11-27: Repo was empty. Scope agreed with Chris: pipeline only, display in meteocam, public repo without licence. Branch `docs/grundstruktur`: docs scaffold, ADR 0001. No app code yet. Next: step 2 (analyse one radar and one nowcast file → `docs/daten.md`).
+- 2026-11-27: Radar PRECIP verified on a real file (float64 mm/h, NaN = no data, 0 = no rain, 710×640 @ 1 km LV95, x 2255000–2965000, y 840000–1480000, row 0 north, asset prefix `rzc` lowercase, file time = interval end). INCA not open → ADR 0002 (pysteps extrapolation 0–2 h + ICON-CH1 TOT_PREC 2–6 h). pysteps has NO MeteoSwiss colour scale; Chris provides an app legend screenshot. Domain data.geo.admin.ch allowed for the session shell.
 - Empty repo note: `main` has no commit yet; the first pushed branch shows as default on GitHub until `main` exists (created on first «deploy»).

@@ -5,10 +5,12 @@ Stand: 27.11.2026
 ## Phase 1 – Proof of Concept (−3 h bis +6 h)
 
 - [x] 1. Repo-Struktur, CLAUDE.md, ROADMAP.md, README, CHANGELOG, ADR 0001
-- [ ] 2. Je eine Radar- und eine Nowcast-Datei holen und analysieren → `docs/daten.md`
-  - Format, Gitter, Projektion, Einheiten, Zeitstempel, Fehlwerte
-  - Name der STAC-Collection für den Nowcast (RR-INCA) bestätigen
-  - Farbskala MeteoSchweiz (Schwellenwerte, Farben) festhalten → Chris zur Freigabe zeigen
+- [ ] 2. Daten analysieren → `docs/daten.md`
+  - [x] Radar PRECIP an echter Datei geprüft (27.11.2026)
+  - [x] INCA: nicht frei verfügbar → ADR 0002 (Hochrechnung 0–2 h + ICON-CH1 2–6 h, INCA anfragen)
+  - [ ] ICON-CH1 `TOT_PREC` an echter Datei prüfen
+  - [ ] Farbskala MeteoSchweiz aus Screenshot der App-Legende ablesen → Chris zur Freigabe
+  - [ ] Anfrage INCA an MeteoSchweiz (Chris, Text vorbereiten)
 - [ ] 3. Pipeline: Dateien → PNG + `index.json` (erst nach «entwickle»)
   - Umrechnung in mm/h, Umprojektion nach EPSG:3857, transparente PNG mit Farbskala
   - `index.json` mit Zeitstempel, Art (Messung/Prognose), Ausdehnung (Bounds), Quelle
