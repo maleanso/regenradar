@@ -1,6 +1,6 @@
 # Betrieb
 
-Stand: 27.11.2026. Einrichtung erst nach «deploy» – Schritt für Schritt mit Chris.
+Stand: 27.11.2026. **Eingerichtet am 27.11.2026** (Bucket `regenradar`, Domain radar.meteocam.ch, Token `regenradar-pipeline`, GitHub-Secrets, erster Lauf erfolgreich).
 
 ## Übersicht
 
@@ -19,14 +19,14 @@ Stand: 27.11.2026. Einrichtung erst nach «deploy» – Schritt für Schritt mit
    ```json
    [
      {
-       "AllowedOrigins": ["https://meteocam.ch", "https://meteocam.maleanso.workers.dev", "http://localhost:8787"],
+       "AllowedOrigins": ["*"],
        "AllowedMethods": ["GET", "HEAD"],
        "AllowedHeaders": ["*"],
        "MaxAgeSeconds": 3600
      }
    ]
    ```
-   Preview-Adressen von meteocam (`*-meteocam.maleanso.workers.dev`) bei Bedarf ergänzen.
+   `*` ist unbedenklich: der Bucket enthält nur öffentliche Regenbilder und ist nur lesbar. So funktionieren auch Preview-Adressen.
 4. **Lebenszyklus-Regel** als Sicherheitsnetz: Objekte nach 2 Tagen löschen (die Pipeline räumt selbst auf).
 5. **API-Token** für R2: «Object Read & Write», nur Bucket `regenradar`. Notieren: Access Key ID, Secret Access Key, Account ID.
 6. **GitHub-Secrets** im Repo (Settings → Secrets and variables → Actions):

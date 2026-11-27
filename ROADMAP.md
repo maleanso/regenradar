@@ -18,7 +18,7 @@ Stand: 27.11.2026
   - Alte Bilder ausserhalb −3 h löschen
   - pytest mit kleiner Beispieldatei
 - [x] 4. Integration meteocam: Ebene «Regen» (27.11.2026, meteocam Branch `dev/rr-regen-layer`, ADR 0018 dort)
-- [ ] 5. Automatisierung (GitHub Actions Cron) und R2-Bucket – Workflows liegen im Branch, Einrichtung nach «deploy» (`docs/betrieb.md`)
+- [x] 5. Automatisierung (GitHub Actions Cron) und R2-Bucket – live seit 27.11.2026 (`docs/betrieb.md`), meteocam v0.81.0 zeigt die Ebene
 
 **Stopp – weiter zu Phase 2 erst nach Freigabe durch Chris.**
 
