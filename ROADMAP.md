@@ -9,7 +9,7 @@ Stand: 27.11.2026
   - [x] Radar PRECIP an echter Datei geprüft (27.11.2026)
   - [x] INCA: nicht frei verfügbar → ADR 0002 (Hochrechnung 0–2 h + ICON-CH1 2–6 h, INCA anfragen)
   - [ ] ICON-CH1 `TOT_PREC` an echter Datei prüfen
-  - [ ] Farbskala MeteoSchweiz aus Screenshot der App-Legende ablesen → Chris zur Freigabe
+  - [x] Farbskala MeteoSchweiz aus App-Legende (freigegeben 27.11.2026)
   - [ ] Anfrage INCA an MeteoSchweiz (Chris, Text vorbereiten)
 - [ ] 3. Pipeline: Dateien → PNG + `index.json` (erst nach «entwickle»)
   - Umrechnung in mm/h, Umprojektion nach EPSG:3857, transparente PNG mit Farbskala
@@ -36,3 +36,4 @@ Umsetzung im Repo meteocam, erst nach «entwickle».
 - Längere Vorausschau mit ICON-Modellniederschlag (ICON-CH1/CH2)
 - Alternative Ausführung statt GitHub Actions: Cloudflare Container oder kleiner VPS (siehe ADR 0001)
 - Low-Level-Wind (vorerst bewusst weggelassen)
+- Niederschlagstyp (Regen/Schnee) und Hagel wie in der MeteoSchweiz-App (Datenquelle offen)

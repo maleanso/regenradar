@@ -75,6 +75,17 @@ Das Gebiet reicht weit über die Schweiz hinaus (ca. 2,7–12,5° O, 43,6–49,4
 
 Hilfen: Python-Paket `meteodatalab`, Beispiele im Repo `MeteoSwiss/opendata-nwp-demos`.
 
+### Geprüft per STAC (27.11.2026)
+
+- **Ein Item pro Lauf × Variable × Vorhersageschritt × Kontrolle/Ensemble**, z. B. `11272026-0600-6-tot_prec-ctrl-…`.
+- Suche: `POST /api/stac/v1/search` mit `collections`, `forecast:variable` (`TOT_PREC`), `forecast:perturbed` (`false` = Kontrolllauf),
+  `forecast:reference_datetime` (Lauf, UTC) und `forecast:horizon` (ISO-Dauer, z. B. `P0DT06H00M00S`).
+- Dateien liegen **nicht** auf data.geo.admin.ch, sondern auf **`rgw.cscs.ch`** (signierte S3-URLs mit Ablaufzeit), z. B.
+  `icon-ch1-eps-202611270600-6-tot_prec-ctrl.grib2`.
+- Collection-Assets: `horizontal_constants_icon-ch1-eps.grib2` (Gitter-Koordinaten), `vertical_constants_…`, `params_icon-ch1-eps.csv`.
+- Am 27.11. um 10:01 UTC war der Lauf 06 UTC der neueste (09 UTC noch nicht da).
+- **Inhalt der GRIB2-Datei (Einheit, Kumulierung von `TOT_PREC`): noch offen** – Download braucht Freigabe der Domain `rgw.cscs.ch`.
+
 ## Farbskala MeteoSchweiz
 
 Quelle: Legende der MeteoSchweiz-App («Animationen – Niederschlag & Niederschlagstyp»), Screenshot von Chris
@@ -95,4 +106,4 @@ am 27.11.2026, Farben per Pixel-Messung abgelesen (einheitliche Flächen). Keine
 
 - **Unter 0,2 mm/h: transparent** (wie in der App). NaN (keine Radardaten): transparent.
 - Deckkraft der Farben im Bild: voll; Transparenz regelt meteocam beim Anzeigen (Entscheid bei der Integration).
-- Freigabe durch Chris: _ausstehend_.
+- Freigabe durch Chris: **erteilt 27.11.2026**.
