@@ -1,6 +1,6 @@
 # Daten
 
-Stand: 27.11.2026 – Radar an echter Datei geprüft; ICON noch offen; INCA nicht frei verfügbar.
+Stand: 27.11.2026 – Radar und ICON-CH1 an echten Dateien geprüft; INCA nicht frei verfügbar.
 
 Quelle: MeteoSchweiz Open Data. Angabe in jeder Ansicht: **«Source: MeteoSwiss»**.
 
@@ -84,7 +84,28 @@ Hilfen: Python-Paket `meteodatalab`, Beispiele im Repo `MeteoSwiss/opendata-nwp-
   `icon-ch1-eps-202611270600-6-tot_prec-ctrl.grib2`.
 - Collection-Assets: `horizontal_constants_icon-ch1-eps.grib2` (Gitter-Koordinaten), `vertical_constants_…`, `params_icon-ch1-eps.csv`.
 - Am 27.11. um 10:01 UTC war der Lauf 06 UTC der neueste (09 UTC noch nicht da).
-- **Inhalt der GRIB2-Datei (Einheit, Kumulierung von `TOT_PREC`): noch offen** – Download braucht Freigabe der Domain `rgw.cscs.ch`.
+- Domain `rgw.cscs.ch` am 27.11.2026 freigegeben.
+
+### Geprüft an echten Dateien (27.11.2026)
+
+Dateien: Lauf 06 UTC, `TOT_PREC` Kontrolllauf, Schritte +5 h und +6 h (je 2,3 MB), dazu `horizontal_constants_icon-ch1-eps.grib2` (37 MB).
+
+| Punkt | Befund |
+|---|---|
+| Format | GRIB2, 1 Message pro Datei, `grid_simple` 16 Bit, Lesen mit **eccodes** (Python-Paket `eccodes` + `eccodeslib`) |
+| Parameter | `tp` Total Precipitation, Einheit **kg m⁻² = mm** |
+| Kumulierung | `stepType` **accum**, `stepRange` **0–N** → Summe **seit Laufbeginn** |
+| Stundenwert | **mm/h = TOT_PREC(N) − TOT_PREC(N−1)**; geprüft: keine negativen Werte, max. 20,7 mm/h |
+| Unterschied zu Radar | ICON = **Stundenmittel**, Radar = **momentane Rate** → gleiche Farbskala, aber in meteocam als «Modell» kennzeichnen |
+| Gitter | `unstructured_grid`, **1'147'980 Punkte**, `uuidOfHGrid` `17643da2574959b644d254a3cd6e2bc0` |
+| Koordinaten | in den horizontalen Konstanten als `tlon` / `tlat` (Zellmittelpunkte, Grad), gleiche Punktzahl und UUID |
+| Gebiet | ca. −0,8 … 17,7° O, 42,0 … 50,5° N (deckt Radargebiet ab) |
+| Plausibilität | Niederschlagsfelder visuell plausibel (Schwerpunkt Südosten, kaum Regen in der Zentralschweiz) |
+
+**Folge für die Pipeline:** Konstanten einmal laden und cachen (37 MB, UUID prüfen); pro Stunde zwei aufeinanderfolgende
+Schritte holen und differenzieren; unstrukturiertes Gitter per Nächster-Nachbar-Index auf das Web-Mercator-Raster abbilden
+(Index einmal berechnen und wiederverwenden). Bereitstellung ca. 4 h nach Laufbeginn → für +2 … +6 h ab jetzt die Schritte
+ca. +6 … +10 des neuesten Laufs verwenden.
 
 ## Farbskala MeteoSchweiz
 
