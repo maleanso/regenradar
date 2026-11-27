@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Pipeline output and downloads (never commit generated or large data)
+out/
+cache/
+downloads/
+*.h5
+*.hdf5
+*.nc
+!pipeline/tests/data/*.h5
+!pipeline/tests/data/*.nc
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
