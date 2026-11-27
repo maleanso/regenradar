@@ -77,5 +77,22 @@ Hilfen: Python-Paket `meteodatalab`, Beispiele im Repo `MeteoSwiss/opendata-nwp-
 
 ## Farbskala MeteoSchweiz
 
-_Offen – in der Open-Data-Doku nicht enthalten, keine offizielle Tabelle gefunden (auch pysteps hat keine MeteoSwiss-Skala).
-Vorgehen: Chris liefert einen Screenshot der Legende aus der MeteoSchweiz-App, daraus werden Stufen und Farben abgelesen und hier festgehalten._
+Quelle: Legende der MeteoSchweiz-App («Animationen – Niederschlag & Niederschlagstyp»), Screenshot von Chris
+am 27.11.2026, Farben per Pixel-Messung abgelesen (einheitliche Flächen). Keine offizielle Tabelle in der Open-Data-Doku
+(auch pysteps hat keine MeteoSwiss-Skala).
+
+| Stufe | von mm/h | bis unter mm/h | Farbe | RGB |
+|---|---|---|---|---|
+| 1 | 0,2 | 1 | `#9B7D96` graulila | 155, 125, 150 |
+| 2 | 1 | 2 | `#0000FF` blau | 0, 0, 255 |
+| 3 | 2 | 4 | `#058C2D` dunkelgrün | 5, 140, 45 |
+| 4 | 4 | 6 | `#05FF05` hellgrün | 5, 255, 5 |
+| 5 | 6 | 10 | `#FFFF00` gelb | 255, 255, 0 |
+| 6 | 10 | 20 | `#FFC800` orangegelb | 255, 200, 0 |
+| 7 | 20 | 40 | `#FF7D00` orange | 255, 125, 0 |
+| 8 | 40 | 60 | `#FF1900` rot | 255, 25, 0 |
+| 9 | ≥ 60 | – | `#AF00DC` violett | 175, 0, 220 |
+
+- **Unter 0,2 mm/h: transparent** (wie in der App). NaN (keine Radardaten): transparent.
+- Deckkraft der Farben im Bild: voll; Transparenz regelt meteocam beim Anzeigen (Entscheid bei der Integration).
+- Freigabe durch Chris: _ausstehend_.
